@@ -1,0 +1,13 @@
+name: Lab
+
+mgmt:
+  network: mgmt
+  ipv4-subnet: 10.0.67.0/24
+
+topology:
+  nodes:
+    edge1-pen:
+      mgmt-ipv4: 10.0.67.225
+      type: ixr-d5
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux
