@@ -11,3 +11,5 @@ topology:
       type: ixr-d5
       kind: nokia_srlinux
       image: ghcr.io/nokia/srlinux
+      ports:
+        - 2121:21
