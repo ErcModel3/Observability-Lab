@@ -1,0 +1,21 @@
+---
+core1:
+    username: admin
+    password: admin@123
+    platform: juniper_vjunosrouter
+    hostname: 10.50.0.10
+core2:
+    username: admin
+    password: admin@123
+    platform: juniper_vjunosrouter
+    hostname: 10.50.0.20
+edge1:
+    username: admin
+    password: admin@123
+    platform: juniper_vjunosrouter
+    hostname: 10.50.0.30
+edge2:
+    username: admin
+    password: admin@123
+    platform: juniper_vjunosrouter
+    hostname: 10.50.0.40

@@ -1,15 +1,40 @@
-name: Lab
+name: O
 
 mgmt:
   network: mgmt
-  ipv4-subnet: 10.0.67.0/24
+  ipv4-subnet: 10.50.0.0/24
 
 topology:
   nodes:
-    edge1-pen:
-      mgmt-ipv4: 10.0.67.225
-      type: ixr-d5
-      kind: nokia_srlinux
-      image: ghcr.io/nokia/srlinux
-      ports:
-        - 2121:21
+    core1:
+      mgmt-ipv4: 10.50.0.10
+      kind: juniper_vjunosrouter
+      image: vrnetlab/juniper_vjunos-router:25.4R1.12
+    
+    core2:
+      mgmt-ipv4: 10.50.0.20
+      kind: juniper_vjunosrouter
+      image: vrnetlab/juniper_vjunos-router:25.4R1.12
+
+    edge1:
+      mgmt-ipv4: 10.50.0.30
+      kind: juniper_vjunosrouter
+      image: vrnetlab/juniper_vjunos-router:25.4R1.12
+    
+    edge2:
+      mgmt-ipv4: 10.50.0.40
+      kind: juniper_vjunosrouter
+      image: vrnetlab/juniper_vjunos-router:25.4R1.12
+
+  links:
+    - endpoints: ["core1:eth1", "core2:eth1"]
+    - endpoints: ["core1:eth2", "core2:eth2"]
+    - endpoints: ["core1:eth3", "edge1:eth1"]
+    - endpoints: ["core1:eth4", "edge1:eth2"]
+    - endpoints: ["core1:eth5", "edge2:eth1"]
+    - endpoints: ["core1:eth6", "edge2:eth2"]
+    
+    - endpoints: ["core2:eth3", "edge1:eth3"]
+    - endpoints: ["core2:eth4", "edge1:eth4"]
+    - endpoints: ["core2:eth5", "edge2:eth3"]
+    - endpoints: ["core2:eth6", "edge2:eth4"]
