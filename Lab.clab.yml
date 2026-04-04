@@ -1,40 +1,44 @@
-name: O
+name: lab
 
 mgmt:
-  network: mgmt
-  ipv4-subnet: 10.50.0.0/24
+  network: lab-mgmt
+  ipv4-subnet: 192.168.10.0/24
 
 topology:
-  nodes:
-    core1:
-      mgmt-ipv4: 10.50.0.10
-      kind: juniper_vjunosrouter
-      image: vrnetlab/juniper_vjunos-router:25.4R1.12
-    
-    core2:
-      mgmt-ipv4: 10.50.0.20
-      kind: juniper_vjunosrouter
-      image: vrnetlab/juniper_vjunos-router:25.4R1.12
+  kinds:
+    nokia_srlinux:
+      image: ghcr.io/nokia/srlinux
+      type: ixr-d3
 
+  nodes:
+    # Leaves
+    core1:
+      kind: nokia_srlinux
+      mgmt-ipv4: 192.168.10.254
+      startup-config: ./configs/core1.cfg
+    core2:
+      kind: nokia_srlinux
+      mgmt-ipv4: 192.168.10.253
+      startup-config: ./configs/core2.cfg
     edge1:
-      mgmt-ipv4: 10.50.0.30
-      kind: juniper_vjunosrouter
-      image: vrnetlab/juniper_vjunos-router:25.4R1.12
-    
+      kind: nokia_srlinux
+      mgmt-ipv4: 192.168.10.252
+      startup-config: ./configs/edge1.cfg
     edge2:
-      mgmt-ipv4: 10.50.0.40
-      kind: juniper_vjunosrouter
-      image: vrnetlab/juniper_vjunos-router:25.4R1.12
+      kind: nokia_srlinux
+      mgmt-ipv4: 192.168.10.251
+      startup-config: ./configs/edge1.cfg
 
   links:
-    - endpoints: ["core1:eth1", "core2:eth1"]
-    - endpoints: ["core1:eth2", "core2:eth2"]
-    - endpoints: ["core1:eth3", "edge1:eth1"]
-    - endpoints: ["core1:eth4", "edge1:eth2"]
-    - endpoints: ["core1:eth5", "edge2:eth1"]
-    - endpoints: ["core1:eth6", "edge2:eth2"]
+    # Inter-Leaf links
+    - endpoints: [ "core1:ethernet-1/1", "core2:ethernet-1/1" ]
+    - endpoints: [ "core1:ethernet-1/2", "core2:ethernet-1/2" ]
+    - endpoints: [ "core1:ethernet-1/3", "edge1:ethernet-1/1" ]
+    - endpoints: [ "core1:ethernet-1/4", "edge1:ethernet-1/2" ]
+    - endpoints: [ "core1:ethernet-1/5", "edge2:ethernet-1/1" ]
+    - endpoints: [ "core1:ethernet-1/6", "edge2:ethernet-1/2" ]
     
-    - endpoints: ["core2:eth3", "edge1:eth3"]
-    - endpoints: ["core2:eth4", "edge1:eth4"]
-    - endpoints: ["core2:eth5", "edge2:eth3"]
-    - endpoints: ["core2:eth6", "edge2:eth4"]
+    - endpoints: [ "core2:ethernet-1/3", "edge1:ethernet-1/3" ]
+    - endpoints: [ "core2:ethernet-1/4", "edge1:ethernet-1/4" ]
+    - endpoints: [ "core2:ethernet-1/5", "edge2:ethernet-1/3" ]
+    - endpoints: [ "core2:ethernet-1/6", "edge2:ethernet-1/4" ]
