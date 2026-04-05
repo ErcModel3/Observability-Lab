@@ -3,4 +3,4 @@ venv/
 
 *.rpm
 
-clab-Lab/
+clab-mon/*
