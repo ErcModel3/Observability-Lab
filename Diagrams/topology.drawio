@@ -1,0 +1,25 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="A7-RiCgpGHMQ3j82NOQQ">
+    <mxGraphModel dx="521" dy="301" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t--xyLvkttC5RG6tUsoR-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="r1" vertex="1">
+          <mxGeometry height="40" width="80" x="240" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="t--xyLvkttC5RG6tUsoR-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="r2" vertex="1">
+          <mxGeometry height="40" width="80" x="400" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="t--xyLvkttC5RG6tUsoR-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="sw1" vertex="1">
+          <mxGeometry height="40" width="240" x="240" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="t--xyLvkttC5RG6tUsoR-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="SRX 300" vertex="1">
+          <mxGeometry height="40" width="80" x="560" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="t--xyLvkttC5RG6tUsoR-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="EX 2200-C" vertex="1">
+          <mxGeometry height="40" width="80" x="560" y="240" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

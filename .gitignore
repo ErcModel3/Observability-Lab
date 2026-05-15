@@ -4,3 +4,5 @@ venv/
 *.rpm
 
 clab-mon/*
+
+Diagrams/*.bkp
