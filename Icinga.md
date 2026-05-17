@@ -51,4 +51,4 @@ After copying the compose [playground strucutre](https://github.com/lippserd/doc
 
 ## Director and automation
 
-To get the first host onboarded (my first srx300) it made sense to use director's automation features to define what an SRX300 monitor should look like
+To get the first host onboarded (my first srx300) it made sense to use director's automation features to define what an SRX300 monitor should look like, this comes from adding host templates within icinga, which is done via the web ui -> not ideal for automation but icinga does acknowledge this and published a guest-made guide on [managing the icinga director with ansible](https://icinga.com/blog/managing-the-icinga-director-with-ansible/) so it can be managed via code and stored within VCS but I'll come to that later.
