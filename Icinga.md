@@ -27,7 +27,8 @@ And the following volumes:
 * mysql
 
 When put together, we can see the compose stack visually like this:
-![icinga-arcitecture](./Diagrams/icinga2-hld.png)
+
+![icinga-arcitecture](./Diagrams/icinga2-hld.drawio.png)
 
 
 What I _didn't_ know was how the `x-` lines at the top were compose extension fields, used to create re-usable data, ignored by the actual processing of docker-compose, it's ignored untill pulled in later. The use of the `&` and `*` in similar areas just relate that data is being referenced where `&` is the anchor and `*` references it. The final `<<` adds them together. So this compose file section:
