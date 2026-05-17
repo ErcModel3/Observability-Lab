@@ -1,4 +1,6 @@
-## SNMP-based monitoring via Icinga2
+# SNMP-based monitoring via Icinga2
+
+## Install and setup
 
 To install / setup I followed and read the [docker-compose-icinga](https://github.com/lippserd/docker-compose-icinga) repo maintained by their CTO. The compose file brings up the following containerised services:
 * icinga director
@@ -24,6 +26,10 @@ And the following volumes:
 * icingaweb
 * mysql
 
+When put together, we can see the compose stack visually like this:
+![icinga-arcitecture](./Diagrams/icinga2-hld.png)
+
+
 What I _didn't_ know was how the `x-` lines at the top were compose extension fields, used to create re-usable data, ignored by the actual processing of docker-compose, it's ignored untill pulled in later. The use of the `&` and `*` in similar areas just relate that data is being referenced where `&` is the anchor and `*` references it. The final `<<` adds them together. So this compose file section:
 ```yaml
 x-icinga-db-web-config:
@@ -39,3 +45,9 @@ environment:
       <<: [*icinga-db-web-config, *icinga-director-config, *icinga-web-config]
 ```
 This makes the compose file significantly more streamlined and easier to maintain (if you know what you're doing!)
+
+After copying the compose [playground strucutre](https://github.com/lippserd/docker-compose-icinga) the stack can be brought up via `docker compose up -d` and is accessible at [localhost:8080](http://localhost:8080/authentication/login)
+
+## Director and automation
+
+To get the first host onboarded (my first srx300) it made sense to use director's automation features to define what an SRX300 monitor should look like
