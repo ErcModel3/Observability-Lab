@@ -13,8 +13,5 @@ These containerised applications include:
   * Also featuring icinga-director (for configuration managment)
 * Grafana for visualisation
 
-For hardware, I'll be monitoring my Juniper EX-2200-C switches and two SRX-300 firewalls using SNMP first.
-
-## SNMP-based monitoring via Icinga2
-
-To install / setup I followed and read the [docker-compose-icinga](https://github.com/lippserd/docker-compose-icinga) repo maintained by their CTO.
+For hardware, I'll be monitoring my Juniper EX-2200-C switches and two SRX-300 firewalls. Documentation for each stage can be found in their respective readmes:
+* [SNMP-based monitoring via Icinga2](icinga.md)
